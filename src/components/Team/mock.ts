@@ -12,17 +12,15 @@ export type TeamProps = {
   name: string;
   type: TYPE_TEAM;
   place: string;
-  age: number;
   image: string;
   socialMedia: SocialMedia[];
 }
 
 export const mockTeam: TeamProps[] = [{
   id: uuid(),
-  name: 'Teste',
+  name: 'Thiago',
   type: TYPE_TEAM.MTB,
-  place: 'Uberaba, MG',
-  age: 34,
+  place: 'Brasilia de Minas, MG',
   image: '',
   socialMedia: [{
     id: uuid(),
@@ -35,7 +33,6 @@ export const mockTeam: TeamProps[] = [{
   name: 'Teste 2',
   type: TYPE_TEAM.MTB,
   place: 'Uberaba, MG',
-  age: 34,
   image: '',
   socialMedia: [{
     id: uuid(),
@@ -48,7 +45,6 @@ export const mockTeam: TeamProps[] = [{
   name: 'Teste 3',
   type: TYPE_TEAM.TRAIL,
   place: 'Uberaba, MG',
-  age: 34,
   image: '',
   socialMedia: [{
     id: uuid(),

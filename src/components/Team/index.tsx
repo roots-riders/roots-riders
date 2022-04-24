@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import * as S from "./styled";
 import {mockTeam, TeamProps} from './mock'
 import { TYPE_TEAM } from "../../utils/enums/Team";
+import CardAthlete from "../Cards/CardAthlete";
 
 const Team = () => {
   const [option, setOption] = useState<TYPE_TEAM>(TYPE_TEAM.ALL);
@@ -19,26 +20,14 @@ const Team = () => {
 
   return(
     <S.Wrapper>
-      <button type="button" onClick={() => changeOption(TYPE_TEAM.MTB)}>mtb</button>
-      <button type="button" onClick={() => changeOption(TYPE_TEAM.TRAIL)}>trail</button>
-      <button type="button" onClick={() => changeOption(TYPE_TEAM.ALL)}>all</button>
-      <ul>
-        {team.map(item => {
-          const {id, name, type, place, age, image, socialMedia} = item;
-           return(
-            <li key={id}>
-              {name}
-              {type}
-              {place}
-              {age}
-              {image}
-              {socialMedia.map(media => (
-                <a key={media.id} href={media.link}>{media.name}</a>
-              ))}
-            </li>
-          )
-        })}
-      </ul>
+      <S.Options>
+        <button type="button" onClick={() => changeOption(TYPE_TEAM.MTB)}>mtb</button>
+        <button type="button" onClick={() => changeOption(TYPE_TEAM.TRAIL)}>trail</button>
+        <button type="button" onClick={() => changeOption(TYPE_TEAM.ALL)}>all</button>
+      </S.Options>
+      <S.CardWrapper>
+        {team.map(athlete => <CardAthlete key={athlete.id} athlete={athlete} />)}
+      </S.CardWrapper>
     </S.Wrapper>
   )
 };

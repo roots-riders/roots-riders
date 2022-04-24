@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 import { useDarkMode } from "usehooks-ts";
-import { Wrapper } from "../components/Team/styled";
+import { Wrapper } from "../components/Toggle/styled";
 import Toggle from "../components/Toggle";
 import GlobalStyles from "../styles/global";
 import { darkTheme, lightTheme } from "../styles/theme";

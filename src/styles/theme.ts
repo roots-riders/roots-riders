@@ -22,7 +22,12 @@ const font = {
   gradient: "linear-gradient(to right, #405de6, #9580ff, #9580ff, #405de6)",
 };
 
+const value = {
+  radius: '.5rem',
+}
+
 export const lightTheme = {
+  ...value,
   font: { ...font },
   colors: {
     none: "transparent",
@@ -30,10 +35,12 @@ export const lightTheme = {
     text_primary: "#F8EFE4",
     primary: "#9580ff",
     secondary: "#405de6",
+    white: "#FFF",
   },
 };
 
 export const darkTheme = {
+ ...value,
   font: { ...font },
   colors: {
     none: "transparent",
@@ -41,5 +48,6 @@ export const darkTheme = {
     text_primary: "#151417",
     primary: "#9580ff",
     secondary: "#405de6",
+    white: "#FFF",
   },
 };

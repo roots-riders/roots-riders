@@ -1,19 +1,30 @@
 import styled, { css } from "styled-components";
-import media from "styled-media-query";
-const dita = "/dita.jpg";
 
 export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  max-width: 120rem;
-  padding: 3rem;
-  margin: 0 auto;
-  position: relative;
-  ${media.lessThan("medium")`
-    justify-content: center;
-    padding: 2rem;
-  `}
+  gap: 2rem;
+
 `;
+
+export const Options = styled.div`
+  ${({theme, }) => css`
+    display: flex;
+    gap: 1rem;
+    button {
+      width: fit-content;
+      min-width: 4rem;
+      cursor: pointer;
+      background-color: ${theme.colors.none};
+      border: 0;
+      outline: 0;
+    }
+  `}
+`
+
+export const CardWrapper = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+`
 
