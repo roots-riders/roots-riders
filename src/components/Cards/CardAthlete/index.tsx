@@ -6,7 +6,7 @@ import Card from '../Card'
 import { TeamProps } from "../../Team/mock";
 import { useAthlete } from "../../../hooks/useAthlete";
 import { useState } from "react";
-
+import { getDistance,formatTime, monthName } from '../../../utils/functions/athletes'
 const avatar = 'img/avatar.webp'
 
 type CardAthleteProps = {
@@ -20,36 +20,36 @@ const THIRD = 2;
 const CardAthlete = ( {athlete}: CardAthleteProps) => {
   const athletes = useAthlete();
   const [option, setOption] = useState<number>(FIRST);
-  
+  const date = new Date();
+  const currentMonth = date.getMonth() + 1;
+  const currentYear = date.getFullYear();
+
   const all = () => (
     <S.ActivitiesWrapper>
       <li><strong>all rides totals</strong></li>
-      <li>count: {athletes?.all_ride_totals.count}</li>
-      <li>distance: {athletes?.all_ride_totals.distance}</li>
-      <li>elapsed_time: {athletes?.all_ride_totals.elapsed_time}</li>
-      <li>elevation_gain: {athletes?.all_ride_totals.elevation_gain}</li>
-      <li>moving_time: {athletes?.all_ride_totals.moving_time}</li>
+      <li>treinos: {athletes?.all_ride_totals.count}</li>
+      <li>distância: {getDistance(athletes?.all_ride_totals.distance)}</li>
+      <li>Ganho de elev.: {athletes?.all_ride_totals.elevation_gain}m</li>
+      <li>Tempo: {formatTime(athletes?.all_ride_totals.moving_time)}</li>
     </S.ActivitiesWrapper>
   )
   const recent = () => (
     <S.ActivitiesWrapper>
-      <li><strong>recent ride  totals</strong></li>
-      <li>count: {athletes?.recent_ride_totals.count}</li>
-      <li>achievement_count: {athletes?.recent_ride_totals.achievement_count}</li>
-      <li>distance: {athletes?.recent_ride_totals.distance}</li>
-      <li>elapsed_time: {athletes?.recent_ride_totals.elapsed_time}</li>
-      <li>elevation_gain: {athletes?.recent_ride_totals.elevation_gain}</li>
-      <li>moving_time: {athletes?.recent_ride_totals.moving_time}</li>
+      <li><strong>{monthName(currentMonth)}</strong></li>
+      <li>treinos: {athletes?.recent_ride_totals.count} </li>
+      <li>conquistas: {athletes?.recent_ride_totals.achievement_count} </li>
+      <li>distância: {getDistance(athletes?.recent_ride_totals.distance)}</li>
+      <li>Ganho de elev.: {athletes?.recent_ride_totals.elevation_gain}m</li>
+      <li>Tempo: {formatTime(athletes?.recent_ride_totals.moving_time)}</li>
     </S.ActivitiesWrapper>
   )
   const ytd = () => (
     <S.ActivitiesWrapper>
-      <li><strong>ytd ride totals</strong></li>
-      <li>count: {athletes?.ytd_ride_totals.count}</li>
-      <li>distance: {athletes?.ytd_ride_totals.distance}</li>
-      <li>elapsed_time: {athletes?.ytd_ride_totals.elapsed_time}</li>
-      <li>elevation_gain: {athletes?.ytd_ride_totals.elevation_gain}</li>
-      <li>moving_time: {athletes?.ytd_ride_totals.moving_time}</li>
+      <li><strong>{currentYear}</strong></li>
+      <li>treinos: {athletes?.ytd_ride_totals.count}</li>
+      <li>distância: {getDistance(athletes?.ytd_ride_totals.distance)}</li>
+      <li>Ganho de elev.: {athletes?.ytd_ride_totals.elevation_gain}m</li>
+      <li>Tempo: {formatTime(athletes?.ytd_ride_totals.moving_time)}</li>
     </S.ActivitiesWrapper>
   )
   const handleOption = (value: number) => setOption(value)
@@ -69,8 +69,8 @@ const CardAthlete = ( {athlete}: CardAthleteProps) => {
           <a key={media.id} href={media.link}>{media.name}</a>
         ))} */}
         <S.ButtonOption onClick={() => handleOption(FIRST)}>Total</S.ButtonOption>
-        <S.ButtonOption onClick={() => handleOption(SECOND)}>Recentes</S.ButtonOption>
-        <S.ButtonOption onClick={() => handleOption(THIRD)}>ytd</S.ButtonOption>
+        <S.ButtonOption onClick={() => handleOption(SECOND)}>{monthName(currentMonth)}</S.ButtonOption>
+        <S.ButtonOption onClick={() => handleOption(THIRD)}>{currentYear}</S.ButtonOption>
         {option === FIRST && all()}
         {option === SECOND && recent()}
         {option === THIRD && ytd()}
