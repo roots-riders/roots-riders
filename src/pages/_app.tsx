@@ -2,16 +2,11 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "usehooks-ts";
-import { Wrapper } from "../components/Toggle/styled";
-import Toggle from "../components/Toggle";
 import GlobalStyles from "../styles/global";
-import { darkTheme, lightTheme } from "../styles/theme";
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  const { isDarkMode, toggle } = useDarkMode();
-  const themeMode = isDarkMode ? darkTheme : lightTheme;
-  return (
-    <>
+import theme from '../styles/theme'
+
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <>
       <Head>
         <title>
           Roots Riders
@@ -26,15 +21,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           rel="stylesheet"
         />
       </Head>
-      <ThemeProvider theme={themeMode}>
+      <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Wrapper>
-          <Toggle theme={isDarkMode ? "dark" : "light"} toggleTheme={toggle} />
-          <Component {...pageProps} />
-        </Wrapper>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
-  );
-};
+)
 
 export default MyApp;

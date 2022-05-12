@@ -6,7 +6,7 @@ export const Wrapper = styled.main`
     flex-direction: column;
     width: fit-content;
     padding: 2rem;
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.primary};
     border-radius: ${theme.radius};
   `}
 `;

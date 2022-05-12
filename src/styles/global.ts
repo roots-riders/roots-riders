@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
     }
     a {
       font-family: ${theme.font.family.open};
-      font-size: ${theme.font.sizes.medium};
+      font-size: ${theme.font.sizes.s16};
       font-weight: ${theme.font.light};
       color: ${theme.colors.text_primary};
     }

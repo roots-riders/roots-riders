@@ -1,53 +1,34 @@
-const font = {
-  family: {
-    roboto:
-      "Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-    open: "'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
-    poppins:
-      "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+export default {
+  font: {
+    family: {
+      roboto:
+        "Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+      open: "'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      poppins:
+        "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    },
+    light: 400,
+    normal: 500,
+    bold: 600,
+    sizes: {
+      s12: "1.2rem",
+      s14: "1.4rem",
+      s16: "1.6rem",
+      s18: "1.8rem",
+      s24: "2.4rem",
+      s32: "3.2rem",
+      s48: "4.8rem",
+      s60: "6rem",
+    },
   },
-  light: 400,
-  normal: 500,
-  bold: 600,
-  sizes: {
-    small: "1.2rem",
-    light: "1.4rem",
-    medium: "1.6rem",
-    large: "1.8rem",
-    big: "2.4rem",
-    xbig: "3.2rem",
-    huge: "4.8rem",
-    xhuge: "6rem",
-  },
-  gradient: "linear-gradient(to right, #405de6, #9580ff, #9580ff, #405de6)",
-};
-
-const value = {
   radius: '.5rem',
-}
-
-export const lightTheme = {
-  ...value,
-  font: { ...font },
   colors: {
     none: "transparent",
     background_primary: "#151417",
     text_primary: "#F8EFE4",
-    primary: "#9580ff",
+    primary: "#0a090a",
     secondary: "#405de6",
-    white: "#FFF",
+    white: "#FFFFFF",
   },
-};
+} as const
 
-export const darkTheme = {
- ...value,
-  font: { ...font },
-  colors: {
-    none: "transparent",
-    background_primary: "#F8EFE4",
-    text_primary: "#151417",
-    primary: "#9580ff",
-    secondary: "#405de6",
-    white: "#FFF",
-  },
-};

@@ -1,12 +1,5 @@
-import styled, { css } from "styled-components";
-import * as CardStyle from '../Cards/Card/styled';
-
-export const Wrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-
-`;
+import styled from "styled-components";
+import * as CardStyle from '../../components/Cards/Card/styled';
 
 export const CardWrapper = styled.section`
   display: flex;

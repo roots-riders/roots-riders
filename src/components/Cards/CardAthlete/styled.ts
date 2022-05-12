@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import Image from "next/image";
+
 
 type CardAthleteStyle = {
   image?: string;
@@ -9,7 +9,7 @@ type CardAthleteStyle = {
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   flex: 1;
   width: 30rem;
   height: auto;
@@ -38,15 +38,18 @@ export const Header = styled.div`
 `;
 
 export const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  h2 {
-    font-size: 3rem;
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-  }
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    h2 {
+      font-size: ${theme.font.sizes.s32};
+      font-family: ${theme.font.family.roboto};
+      font-weight: ${theme.font.bold};
+      width: 100%;
+      text-align: center;
+    }
+  `}
 `;
 
 export const SocialMedia = styled.div`
